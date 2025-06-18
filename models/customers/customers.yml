@@ -1,0 +1,26 @@
+version: 2
+
+sources:
+  - name: customers
+    description: sample data of customers
+
+  - name: source
+    schema: source
+    database: raw
+    tables:
+      - name: customer
+      - name: orders
+      - name: region
+      - name: nation
+
+models:
+  - name: customer_data
+    description: This is the customer data model.
+    tests:
+      - dbt_utils.equality:
+          compare_model: ref('customer_data_expected')
+    columns:
+      - name: Nation
+        description: This is a the nation name.
+        tests:
+          - not_null

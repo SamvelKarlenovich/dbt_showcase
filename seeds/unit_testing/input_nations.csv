@@ -1,0 +1,4 @@
+n_nationkey,n_name,n_regionkey
+1,USA,10
+2,Canada,10
+3,UK,20
